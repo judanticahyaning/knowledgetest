@@ -1,0 +1,80 @@
+<script src="static/DataTables/DataTables-1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="static/DataTables/DataTables-1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<!--<script>-->
+<!--    $.ajax({-->
+<!--        'url': "http://127.0.0.1:5000/data",-->
+<!--        'method' : "GET",-->
+<!--        'datatype' : "json"-->
+<!--    }).done(function(data){-->
+<!--        $('#coba').DataTable({-->
+<!--            for (var i=0; i<data.length; i++) {-->
+<!--                var row = $('<tr><td>' + data[i].title+ '</td><td>' + data[i].genre + '</td><td>' + data[i].rating + '</td><td>' + data[i].duration + '</td><td>' + data[i].quality + '</td><td>' + data[i].trailer + '</td><td>' + data[i].watch + '</td></tr>');-->
+<!--                $('#coba').append(row);-->
+<!--            }-->
+<!--        })-->
+<!--    })-->
+<!--</script>-->
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        $('#coba').DataTable({-->
+<!--        "paging" : true,-->
+<!--        "serverside" : true,-->
+<!--        "info" : true,-->
+<!--        "ajax" : {-->
+<!--            url: 'http://127.0.0.1:5000/data',-->
+<!--            type : 'GET',-->
+<!--            dataType: 'json',-->
+<!--            success: function(data)-->
+<!--            {-->
+<!--                for (var i=0; i<data.length; i++)-->
+<!--                {-->
+<!--                    var row = $('<tr><td>' + data[i].title+ '</td><td>' + data[i].genre + '</td><td>' + data[i].rating + '</td><td>' + data[i].duration + '</td><td>' + data[i].quality + '</td><td>' + data[i].trailer + '</td><td>' + data[i].watch + '</td></tr>');-->
+<!--                    $('#coba').append(row);-->
+<!--                }-->
+<!--            },-->
+<!--            error: function(jqXHR, textStatus, errorThrown){-->
+<!--            alert('Error: ' + textStatus + ' - ' + errorThrown);-->
+<!--            }-->
+<!--        }-->
+<!--        });-->
+<!--     });-->
+<!--</script>-->
+<script type="text/javascript">
+$.ajax({
+    url: 'http://127.0.0.1:5000/data',
+    dataType: 'json',
+    success: function(data) {
+        var count = 1
+        for (var i=0; i<data.length; i++) {
+            var row = $('<tr><td>' + count++ + '</td><td>' + data[i].title+ '</td><td>' + data[i].genre + '</td><td>' + data[i].rating + '</td><td>' + data[i].duration + '</td><td>' + data[i].quality + '</td><td>' + data[i].trailer + '</td><td>' + data[i].watch + '</td><td><a href="" id="edit" class="edit" data-toggle="modal" data-target="#editFilm"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a><a href="" class="delete" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td></tr>');
+            $('#coba').append(row);
+        }
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+        alert('Error: ' + textStatus + ' - ' + errorThrown);
+    }
+});
+</script>
+<!--<script>-->
+<!--// When you click on button...-->
+<!--$('#coba .edit').click(function() {-->
+
+<!--    // Find the closest row relative to where you clicked, then find the columns in that row.-->
+<!--    var $row = $(this).closest("tr").find("td");-->
+
+<!--    // Categorize the different colums from the left to right (first column [0]),-->
+<!--	var person = {-->
+<!--  	First: $row[0].textContent,-->
+<!--  	Last: $row[1].textContent,-->
+<!--  	Class: $row[2].textContent,-->
+<!--	}-->
+
+<!--    // Add the text to an element class-->
+<!--    $(".FirstName").text(person.First);-->
+<!--    $(".LastName").text(person.Last);-->
+<!--    $(".ClassName").text(person.Class);-->
+<!--});-->
+
+<!--</script>-->
+</body>
+</html>
