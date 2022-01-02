@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Knowledge Test - Judanti Cahyaning Tyas
+  description: Create, Read, Update and Delete
+  version: 0.1.1
+ 
+servers:
+  - url: http://127.0.0.1:5000/data
+    description: Read/show the data.
+  - url: http://127.0.0.1:5000/addFilm
+    description: Adding the data.
+  - url: http://127.0.0.1:5000/editFilm/<id>
+    description: Edit the data.
+  - url: http://127.0.0.1:5000/delFilm/<id>
+    description: Delete the data.
+ 
+ 
+paths:
+  /data:
+    get:
+      summary: Showing data film
+      description: Showing data film
+      responses:
+        '200':    # status code
+          description: Showing the data to interface
+          
+  /addFilm:
+    post:
+      summary: Adding data film
+      description: Adding data film
+      responses:
+        '200':    # status code
+          description: Showing message Berhasil
+          
+  /editFilm/<id>:
+    put:
+      summary: Edit data film
+      description: Edit data film
+      responses:
+        '200':    # status code
+          description: Showing message berhasil diupdate
+  
+  /delFilm/<id>:
+    delete:
+      summary: Delete data film
+      description: Delete data film
+      responses:
+        '200':    # status code
+          description: Showing message berhasil dihapus
